@@ -11,7 +11,7 @@ class Embed extends CI_Controller {
 
 	public function index()
 	{		
-		$data['menu'] = "Data embed";
+		$data['menu'] = "Data Konten Evaluasi";
 		$data['row'] = $this->embed_m->get();
 		$this->templateadmin->load('template/dashboard','embed/embed_data',$data);
 	}

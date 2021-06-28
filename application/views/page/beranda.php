@@ -42,7 +42,7 @@
             </a>
           </div>          
           <a href="<?= base_url('page/kursusMenu')?>" class="small-box-footer">
-            Kursus Pendek
+            Kursus Dasar
           </a>
         </div>
       </div>

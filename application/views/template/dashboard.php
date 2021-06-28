@@ -21,20 +21,14 @@
   <!-- Aous -->
   <link rel="stylesheet" href="<?=base_url()?>/assets/plugins/aos/aos.css">
   <?php 
-    if ($this->uri->segment(1) == "kelompok" and $this->uri->segment(2) == "anggota") {
+    if ($this->uri->segment(1) == "user") {
       $this->load->view("script/datatables-header");
-    } elseif ($this->uri->segment(1) == "kelompok" and $this->uri->segment(2) == null) {
-      $this->load->view("script/datatables-header");
-    } elseif ($this->uri->segment(1) == "anggota") {
+    } elseif ($this->uri->segment(1) == "user" and $this->uri->segment(2) == null) {
       $this->load->view("script/datatables-header");
     } elseif ($this->uri->segment(1)=="video" and $this->uri->segment(2)=="edit" or $this->uri->segment(1)=="video" and $this->uri->segment(2)=="tambah") {
       $this->load->view("script/summernote-header");
     } elseif ($this->uri->segment(1)=="modul" and $this->uri->segment(2)=="edit" or $this->uri->segment(1)=="modul" and $this->uri->segment(2)=="tambah") {
-      $this->load->view("script/summernote-header");
-    } elseif ($this->uri->segment(1)=="info" and $this->uri->segment(2)=="edit" or $this->uri->segment(1)=="info" and $this->uri->segment(2)=="tambah") {
-      $this->load->view("script/summernote-header");
-    } elseif ($this->uri->segment(1)=="donasi" and $this->uri->segment(2)=="admin") {
-      $this->load->view("script/datatables-header");
+      $this->load->view("script/summernote-header");    
     }
   ?>
 </head>
@@ -103,7 +97,7 @@
           </li>
           <?php if ($this->session->tipe_user == "2") { } else { ?>
           <li class="nav-item has-treeview">
-            <a href="<?= base_url('page/kursusMenu')?>" class="nav-link <?= $this->uri->segment(1) == 'video' ||  $this->uri->segment(1) == "modul" ||  $this->uri->segment(2) == "kursusMenu" ||  $this->uri->segment(2) == "materiMenu" ||  $this->uri->segment(2) == "videoMenu" ? "active" : ""?>"><i class="nav-icon fas fa-users"></i><p>Kursus Pendek<i class="right fas fa-angle-down"></i></p></a>
+            <a href="<?= base_url('page/kursusMenu')?>" class="nav-link <?= $this->uri->segment(1) == 'video' ||  $this->uri->segment(1) == "modul" ||  $this->uri->segment(2) == "kursusMenu" ||  $this->uri->segment(2) == "materiMenu" ||  $this->uri->segment(2) == "videoMenu" ? "active" : ""?>"><i class="nav-icon fas fa-users"></i><p>Kursus Dasar<i class="right fas fa-angle-down"></i></p></a>
             <ul class="nav nav-treeview">              
               <li class="nav-item">
                 <a href="<?=site_url('page/materiMenu')?>" class="nav-link <?=$this->uri->segment(2) == 'materiMenu' || $this->uri->segment(1) == "modul" || $this->uri->segment(3) == "kurikulum" ? "active" : ""?>"><i class="nav-icon fas fa-database"></i><p>Materi</p></a>
@@ -282,25 +276,9 @@
     $this->load->view("script/summernote-footer");
   } elseif ($this->uri->segment(1)=="info" and $this->uri->segment(2)=="edit" or $this->uri->segment(1)=="info" and $this->uri->segment(2)=="tambah") {
     $this->load->view("script/summernote-footer");
-  } elseif ($this->uri->segment(1)=="kelompok" and $this->uri->segment(2)== null) {
-    $this->load->view("script/datatables-footer");
-    $this->load->view("script/datatables-kelompok");
-  } elseif ($this->uri->segment(1)=="kelompok" and $this->uri->segment(2)== "anggota") {
-    $this->load->view("script/datatables-footer");
-    $this->load->view("script/datatables-kelompok");
-  } elseif ($this->uri->segment(1)=="anggota") {
+  } elseif ($this->uri->segment(1)=="user") {
     $this->load->view("script/datatables-footer");
     $this->load->view("script/datatables-anggota");
-  } elseif ($this->uri->segment(1)=="kelompok" and $this->uri->segment(2)=="edit" or $this->uri->segment(1)=="kelompok" and $this->uri->segment(2)=="tambah") {
-    $this->load->view("script/pilihan_wilayah");
-    $this->load->view("script/pilihan_kelompok");
-  } elseif ($this->uri->segment(1)=="donasi" and $this->uri->segment(2)=="admin") {
-    $this->load->view("script/datatables-footer");
-    $this->load->view("script/datatables-donasi");
-  } elseif ($this->uri->segment(1)=="statistik" and $this->uri->segment(2)==null) {
-    $this->load->view("script/chart-admin");
-  } elseif ($this->uri->segment(1)=="statistik" and $this->uri->segment(2)=="lahan") {
-    $this->load->view("script/chart-lahan");
   }
 ?>
 

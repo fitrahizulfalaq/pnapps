@@ -21,3 +21,63 @@
   });
 </script>
 
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+        "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,            
+    });
+
+  var table = $('#example3').DataTable({
+    "lengthMenu": [ [20, 50, 100, -1], [20, 50, 100, "All"] ],
+    "autoWidth": true,
+    select: true
+  });
+
+  new $.fn.dataTable.Buttons(table, {
+      
+      buttons: [        
+        {
+            extend: 'colvis',
+            text: '<i class="fas fa-eye"></i>',                
+        },
+        {
+            extend: 'print',
+            text: '<i class="fas fa-print"></i>',
+            exportOptions: {
+                columns: ':visible'
+            }
+        },
+        {
+            extend: 'csv',
+            text: '<i class="fas fa-file-excel"></i>',
+            exportOptions: {
+                columns: ':visible'
+            }
+        },
+        {
+            extend: 'pdf',
+            text: '<i class="fas fa-file-pdf"></i>',
+            exportOptions: {
+                columns: ':visible'
+            }
+        },
+        {
+            extend: 'copy',
+            text: '<i class="fas fa-copy"></i>',
+            exportOptions: {
+                columns: ':visible'
+            }
+        },        
+      ],            
+  });
+   
+  table.buttons( 0, null ).containers().appendTo( '.tableTools-container' );
+  });
+</script>
+
